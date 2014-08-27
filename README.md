@@ -25,5 +25,5 @@ Timeline & Topics:
 
 Resources:
 
-the Julia language: http://julialang.org/
-Julia stats: 
+- the Julia language: http://julialang.org/
+- Statistics group: http://juliastats.org/
