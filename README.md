@@ -27,3 +27,4 @@ Resources:
 
 - the Julia language: http://julialang.org/
 - Statistics group: http://juliastats.org/
+- video overviews from the Julia Conference: http://juliacon.org/
