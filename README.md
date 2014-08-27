@@ -3,7 +3,7 @@ stat590f
 
 Topics in statistical computing @ ISU
 
-Time & Place: Snedecor 1009, W 12-1
+Time & Place: Snedecor 1109, W 12-1
 
 Timeline & Topics:
 
