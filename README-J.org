@@ -1,0 +1,18 @@
+* Topics in statistical computing @ ISU
+
+** Timeline & Topics
+
+*** ESS also speaks Julia (Jarrod)
+    <2014-09-24 Wed>
+
+*** typing (Jarrod), discussant: Alex
+    <2014-10-22 Wed>
+
+*** interop C, Fortran in Julia (Jarrod)
+    <2014-11-19 Wed>
+
+** Resources
+
+- the Julia language: http://julialang.org/
+- Statistics group: http://juliastats.org/
+- video overviews from the Julia Conference: http://juliacon.org/
