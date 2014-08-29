@@ -57,28 +57,6 @@ knit_engines$set(julia = function(options) {
 string("Hello", " World!")
 ```
 
-
-## A potential issue with your PATH
-
-* If you run into problems/errors, make sure `system` calls within `R` recognize your julia directory:
-
-```{r PATH}
-paths <- strsplit(system("echo $PATH", intern = TRUE), split = ":")[[1]]
-paths[grepl("julia", paths)]
-```
-
-* This comes from my system's `~/.profile` (btw, does anyone know how to avoid hard coding the version path?):
-
-```code
-export PATH=/Applications/Julia-0.3.0.app/Contents/Resources/julia/bin/:$PATH
-```
-
-* Mac OSX GUI's (RStudio) don't read environment variables from `~/.profile`. You can circumvent this issue by opening RStudio from the command line:
-
-```code
-open -a RStudio
-```
-
 ## Now using Gadfly!
 
 ```{r gadfly, eval = FALSE}

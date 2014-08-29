@@ -130,29 +130,6 @@ string(&quot;Hello&quot;, &quot; World!&quot;)
 
 <pre >#&gt; &quot;Hello World!&quot;</pre>
 
-</article></slide><slide class=''><hgroup><h2>A potential issue with your PATH</h2></hgroup><article  id="a-potential-issue-with-your-path">
-
-<ul class = 'build'>
-<li>If you run into problems/errors, make sure <code>system</code> calls within <code>R</code> recognize your julia directory:</li>
-</ul>
-
-<pre class = 'prettyprint lang-r'>paths &lt;- strsplit(system(&quot;echo $PATH&quot;, intern = TRUE), split = &quot;:&quot;)[[1]]
-paths[grepl(&quot;julia&quot;, paths)]</pre>
-
-<pre >#&gt; [1] &quot;/Applications/Julia-0.3.0.app/Contents/Resources/julia/bin/&quot;</pre>
-
-<ul class = 'build'>
-<li>This comes from my system&#39;s <code>~/.profile</code> (btw, does anyone know how to avoid hard coding the version path?):</li>
-</ul>
-
-<pre class = 'prettyprint lang-code'>export PATH=/Applications/Julia-0.3.0.app/Contents/Resources/julia/bin/:$PATH</pre>
-
-<ul class = 'build'>
-<li>Mac OSX GUI&#39;s (RStudio) don&#39;t read environment variables from <code>~/.profile</code>. You can circumvent this issue by opening RStudio from the command line:</li>
-</ul>
-
-<pre class = 'prettyprint lang-code'>open -a RStudio</pre>
-
 </article></slide><slide class=''><hgroup><h2>Now using Gadfly!</h2></hgroup><article  id="now-using-gadfly">
 
 <pre class = 'prettyprint lang-r'>using Gadfly
