@@ -244,7 +244,11 @@ head(iris)
 typeof(iris)
 summary(iris)
 names(iris)
-iris[1]
+iris[1] # call by position
+iris[:SepalLength] # call by name
+
+iris[[:SepalLength, :SepalWidth]]
+
 # not dim, but size
 dim(iris)
 size(iris)
