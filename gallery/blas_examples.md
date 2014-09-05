@@ -106,7 +106,17 @@ that it's the same matrix and uses a general algorithm for matrix
 multiplication. Assigning a temporary variable first would let `'*`
 call the right algorithm, but it wouldn't invoke the mutating version,
 which (I believe) can increment `out` as it calculates the matrix
-multiplication (without making another pass through the matrix).
+multiplication (without making another pass through the matrix). Using
+`syrk` instead of naive multiplication is probably where most of the
+gain in speed comes from, and it just comes from being precise about
+the operation you want to do. (I didn't know for sure that BLAS has
+a matrix crossproduct built in before I looked for it, but it's pretty
+clear that BLAS *should* have a matrix crossproduct. The fact that it
+has a mutating version that does exactly what we want is just icing
+on the cake, but don't we expect cake to have icing? And shouldn't we
+expect that the industry standard library of matrix and vector
+operations will tend to have efficient implementations of common
+operations?)
 
 * The memory allocation for the subarray version is kind of astonishing.
 
