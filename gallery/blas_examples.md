@@ -98,6 +98,16 @@ res = zeros(2_000,2_000)
 
 Concluding thoughts:
 
+* Using the *exactly appropriate* BLAS function for your task performs
+much better than using a nearly appropriate BLAS function. Since the
+first version repeats `X[find(cl.==j),:]` twice instead of assigining
+it to a temprorary variable, the maxtrix multiplication does not know
+that it's the same matrix and uses a general algorithm for matrix
+multiplication. Assigning a temporary variable first would let `'*`
+call the right algorithm, but it wouldn't invoke the mutating version,
+which (I believe) can increment `out` as it calculates the matrix
+multiplication (without making another pass through the matrix).
+
 * The memory allocation for the subarray version is kind of astonishing.
 
 * I don't know how to write equivalent R code, but I'm sure it could
