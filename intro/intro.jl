@@ -74,9 +74,10 @@ false
 # $ can be used for string interpolation:
 "2 + 2 = $(2 + 2)" # => "2 + 2 = 4"
 # You can put any Julia expression inside the parenthesis.
-
+four = 4
+"2 + 2 = $four"
 # Another way to format strings is the printf macro.
-@printf "%d is less than %f" 4.5 5.3 # 5 is less than 5.300000
+@printf "%d is less than %.3f" 4.5 5.3 # 5 is less than 5.300000
 
 # Printing is easy
 println("I'm Julia. Nice to meet you!")
@@ -238,7 +239,7 @@ Set(1,2,3,4,4,4,4)
 using DataFrames
 using RDatasets
 
-iris = dataset("datasets", "iris")
+iris = dataset("datasets", "iris");
 head(iris)
 
 typeof(iris)
