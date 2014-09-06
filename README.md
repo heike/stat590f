@@ -8,7 +8,7 @@ Time & Place: Snedecor 1109, W 12-1
 Timeline & Topics:
 
 - Aug 27: installation of Julia, discussion of topics and timeline
-- Sep 3: intro to Julia (Heike)
+- Sep 3: <a href="intro/intro.jl">intro</a> to Julia (Heike)
 - Sep 10: graphics capabilities: e.g. gadfly (Andee, Carson, Sam T)
 - Sep 17: ML capabilities (Sam H) [detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia]
 - Sep 24: ESS also speaks Julia (Jarrod)
