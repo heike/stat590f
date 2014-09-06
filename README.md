@@ -28,3 +28,5 @@ Resources:
 - the Julia language: http://julialang.org/
 - Statistics group: http://juliastats.org/
 - video overviews from the Julia Conference: http://juliacon.org/
+- free iPython/console access through the browser: http://juliabox.org
+  - the page intentionally doesn't make this clear, but this is by the Julia team; see <http://www.reddit.com/r/Julia/comments/2flf0l/juliabox/ckaxx4x>
