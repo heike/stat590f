@@ -37,3 +37,10 @@ surf(-3:.1:3,-3:0.1:3,(x,y)->cos(x)*sin(y),"plotstyle","points",
 "title","surf demo","color","blue")
 set_filename("plots-julia/gaston_3d.png")
 printfigure("png")
+
+################################################
+##ASCIIPlots, not a joke.
+using ASCIPlots
+x = 2 * pi * rand(30)
+y = sin(x) + 0.1 * randn(30)
+scatterplot(x, y, sym = '*')

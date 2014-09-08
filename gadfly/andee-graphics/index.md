@@ -112,7 +112,7 @@ Gaston Capabilities/Issues
   - titles/labels
   - saving (pdf, svg, png, gif)
 - Decent documentation (plus documentation for `gnuplot` is extensive)
-- Limited options/flexibility
+- Limited flexibility
 - Installation issues (more of a `gnuplot` issue than `Gaston`)
 
 
@@ -122,6 +122,45 @@ ASCIIPlots
 
 ![Jump the shark](fonziejumpsshark3sl.gif)
 
+ASCIIPlots - A real thing
+=======================================================
+
+```r
+using ASCIIPlots
+x = rand(10);
+y = rand(10);
+scatterplot(x, y, sym='*')
+```
+
+Beautiful
+======================================================
+<pre>
+  -------------------------------------------------------------
+	|                                  *                         | 0.99
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                  *                         |
+	|                             *                              |
+	|                                                            |
+	|*                                                          *|
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|                                                            |
+	|*                                                           |
+	|*                                                           |
+	|                                            *         *     | 0.01
+	-------------------------------------------------------------
+	0.07                                                    0.96
+
+</pre>
+
 PyPlot
 ========================================================
 - Wrapper for utilizing `matplotlib` (Python) from Julia
@@ -130,4 +169,3 @@ PyPlot
 Gadfly
 ========================================================
 - Implementation of the grammar of graphics in Julia
-
