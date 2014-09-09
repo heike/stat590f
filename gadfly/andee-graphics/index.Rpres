@@ -289,7 +289,7 @@ Gadfly Capabilities/Limitations
   - saving (png, pdf, ps, eps, svg , svg-js)
 - Very flexible
 - Beautiful plots
-- Limited documentation
+- Decent documentation
 - Slow
 - Some interactivity with `interact.jl` and `reactive.jl`, but same can be said for all graphics libraries
 
