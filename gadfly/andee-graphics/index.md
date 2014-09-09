@@ -251,6 +251,7 @@ PyPlot Capabilities/Limitations
 Gadfly
 ========================================================
 - Implementation of the grammar of graphics in Julia
+- No longer using D3 in rendering
 
 
 ```r
