@@ -1,6 +1,6 @@
 <style>
 .reveal code.r {
-  font-size: larger
+  font-size: large
 }
 </style>
 
@@ -44,7 +44,7 @@ In order to print the plot, must save the plot, and insert into a `div` below.
   <object data="plots-julia/winston_plot.svg" type="image/svg+xml" width="600" height="400"></object>
 </div>
 
-Winston Capabilities/Issues
+Winston Capabilities/Limitations
 =======================================================
 - Basic plotting functionality 
   - scatter plots, line plots, bar charts(ish)
@@ -104,10 +104,10 @@ Gaston Example Plots
 <img src="plots-julia/gaston_histo.png" style="height: 33%"></img>
 <img src="plots-julia/gaston_3d.png" style="height: 32%"></img>
 
-Gaston Capabilities/Issues
+Gaston Capabilities/Limitations
 =======================================================
 - Basic plotting functionality 
-  - scatter plots, line plots, histograms, etc.
+  - scatter plots, line plots, histograms, surfaces, etc.
   - can overlay histograms/line charts with "mid-level" plotting
   - titles/labels
   - saving (pdf, svg, png, gif)
@@ -136,35 +136,117 @@ Beautiful
 ======================================================
 <pre>
   -------------------------------------------------------------
-	|                                  *                         | 0.99
-	|                                                            |
-	|                                                            |
-	|                                                            |
-	|                                                            |
-	|                                                            |
-	|                                                            |
-	|                                  *                         |
-	|                             *                              |
-	|                                                            |
-	|*                                                          *|
-	|                                                            |
-	|                                                            |
-	|                                                            |
-	|                                                            |
-	|                                                            |
+	|           *                                                | 1.05
+	|                 **                                         |
+	|               *   * *                                      |
+	|       ***                                                  |
+	|                      *                                     |
+	|   *                                                        |
 	|                                                            |
 	|*                                                           |
-	|*                                                           |
-	|                                            *         *     | 0.01
+	|* *                         *                               |
+	|*                            *                             *|
+	|                                                            |
+	|                                                            |
+	|                               *                          * |
+	|                                 *                          |
+	|                                                            |
+	|                                                            |
+	|                                     *   *      *           |
+	|                                       *    *   *           |
+	|                                                            |
+	|                                            **              | -1.15
 	-------------------------------------------------------------
-	0.07                                                    0.96
+	0.11                                                    6.17
+
 
 </pre>
 
 PyPlot
 ========================================================
 - Wrapper for utilizing `matplotlib` (Python) from Julia
+- Uses the Julia PyCall package to call `matplotlib` directly from Julia
+- (Sort of/Maybe?) ~~interactive~~ 2D and 3D plots
 
+
+```r
+using PyPlot
+x = 0:.5:5
+y = exp(-x)
+
+errorbar(x, y, xerr=0.2, yerr=0.4)
+savefig("plots-julia/PyPlot_errorbar.svg")
+
+##Scatterplot
+N = 50
+x = rand(N)
+y = rand(N)
+colors = rand(N)
+area = pi * (15 * rand(N))
+
+scatter(x, y, s=area, c=colors, alpha=0.5)
+savefig("plots-julia/PyPlot_scatter.svg")
+```
+
+PyPlot Example Plot
+=======================================================
+<div align = "center">
+  <object data="plots-julia/PyPlot_errorbar.svg" type="image/svg+xml" width="450" height="500"></object>
+  <object data="plots-julia/PyPlot_scatter.svg" type="image/svg+xml" width="450" height="500"></object>
+</div>
+
+PyPlot Animations!
+=======================================================
+<video width="600" height="400" controls>
+  <source src="plots-julia/PyPlots-sinplot.mp4" type="video/mp4">
+</video>
+
+PyPlot Animations!
+=======================================================
+
+```r
+using PyCall
+using PyPlot
+@pyimport matplotlib.animation as anim
+
+# First set up the figure, the axis, and the plot element we want to animate
+fig = figure()
+ax = plt.axes(xlim=(0, 2), ylim=(-2, 2))
+global line = ax[:plot]([], [], lw=2)[1]
+
+# initialization function: plot the background of each frame
+function init()
+    global line
+    line[:set_data]([], [])
+    return (line,None)
+end
+
+# animation function.  This is called sequentially
+function animate(i)
+    x = linspace(0, 2, 1000)
+    y = sin(2 * pi * (x - 0.01 * i))
+    global line
+    line[:set_data](x, y)
+    return (line,None)
+end
+
+# call the animator.  blit=True means only re-draw the parts that have changed.
+myanim = anim.FuncAnimation(fig, animate, init_func=init,
+                               frames=100, interval=20)
+
+myanim[:save]("plots-julia/PyPlots-sinplot.mp4", extra_args=["-vcodec", "libx264", "-pix_fmt", "yuv420p"])
+```
+[[Source](http://jakevdp.github.io/blog/2013/05/12/embedding-matplotlib-animations/)]
+
+PyPlot Capabilities/Limitations
+=======================================================
+- Basic plotting functionality 
+  - scatter plots, line plots, histograms, surfaces, etc.
+  - LaTeX titles/labels
+  - saving (png, pdf, ps, eps, svg)
+- Very flexible
+- Animations!
+- Limited documentation (but documentation for `matplot` is extensive)
 
 Gadfly
 ========================================================
