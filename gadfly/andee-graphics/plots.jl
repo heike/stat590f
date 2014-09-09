@@ -94,3 +94,16 @@ myanim = anim.FuncAnimation(fig, animate, init_func=init,
 
 myanim[:save]("plots-julia/PyPlots-sinplot.mp4", extra_args=["-vcodec", "libx264", "-pix_fmt", "yuv420p"])
 
+##########################################################################
+##Gadfly
+
+using Gadfly
+using RDatasets
+p1 = plot(dataset("datasets", "iris"), x="SepalLength", y="SepalWidth", Geom.point)
+p2 = plot(dataset("car", "SLID"), x="Wages", color="Language", Geom.histogram)
+p3 = plot([sin, cos], 0, 25)
+
+draw(SVGJS("plots-julia/gadfly_scatter.js.svg", 6inch, 6inch), p1)
+draw(SVGJS("plots-julia/gadfly_hist.js.svg", 6inch, 6inch), p2)
+draw(SVGJS("plots-julia/gadfly_func.js.svg", 6inch, 6inch), p3)
+

@@ -251,3 +251,52 @@ PyPlot Capabilities/Limitations
 Gadfly
 ========================================================
 - Implementation of the grammar of graphics in Julia
+
+
+```r
+using Gadfly
+using RDatasets
+p1 = plot(dataset("datasets", "iris"), x="SepalLength", y="SepalWidth", Geom.point)
+p2 = plot(dataset("car", "SLID"), x="Wages", color="Language", Geom.histogram)
+
+draw(SVGJS("plots-julia/gadfly_scatter.js.svg", 6inch, 6inch), p1)
+draw(SVGJS("plots-julia/gadfly_hist.js.svg", 6inch, 6inch), p2)
+```
+
+
+Interaction?
+========================================================
+<div align = "center">
+  <object data="plots-julia/gadfly_scatter.js.svg" type="image/svg+xml" width="49%" height="400"></object>
+  <object data="plots-julia/gadfly_hist.js.svg" type="image/svg+xml" width="49%" height="400"></object>
+  <object data="plots-julia/gadfly_functions.js.svg" type="image/svg+xml" width="600" height="400"></object>
+</div>
+
+Not really.
+=======================================================
+![Dissapointment](disappointment.gif)
+
+Something cool
+======================================================
+
+```r
+p3 = plot([sin, cos], 0, 25)
+draw(SVGJS("plots-julia/gadfly_func.js.svg", 6inch, 6inch), p3)
+```
+<div align = "center">
+  <object data="plots-julia/gadfly_func.js.svg" type="image/svg+xml" width="600" height="400"></object>
+
+
+Gadfly Capabilities/Limitations
+=======================================================
+- Plotting capabilities
+  - Layers -- Gadfly can draw multiple layers to the same plot
+  - LaTeX titles/labels
+  - saving (png, pdf, ps, eps, svg , svg-js)
+- Very flexible
+- Beautiful plots
+- Limited documentation
+- Slow
+- Some interactivity with `interact.jl` and `reactive.jl`, but same can be said for all graphics libraries
+
+
