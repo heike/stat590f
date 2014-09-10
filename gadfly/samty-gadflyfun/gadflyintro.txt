@@ -1,0 +1,52 @@
+#single line comment
+#=
+	Double
+	line comment
+=#
+
+Pkg.add("Gadfly")
+Pkg.add("Cairo")
+
+# "Plotting Arrays" #
+
+#scatter plot of 10 random x & 10 random y
+#rand is the base fn that generates 10 realizations of a Unif(0,1) r.v.
+plot(x=rand(10), y=rand(10))	
+#opens the graphic in browser
+#interactive zooming and panning automatic
+#automatic adjustment of ticks, axes.
+#arguments separated by commas.
+	# difference: not vectorized like ggplot geom = c("point","smooth")
+plot(x=1:10, y=2.^rand(10),
+     Scale.y_sqrt, Geom.point, Geom.smooth, #write geoms as addl arguments
+     Guide.xlabel("Stimulus"), Guide.ylabel("Response"), Guide.title("Dog Training"))
+     
+# "Plotting Dataframes" #
+using DataFrames
+using RDatasets
+plot(dataset("car", "SLID"), x="Wages", color="Language", Geom.histogram)
+plot(dataset("car", "SLID"), x="Wages", color="Language", Geom.histogram(position=:dodge))     
+plot(dataset("datasets", "iris"), x="Species", y="SepalLength", Geom.boxplot)
+
+p = readtable("/Users/samanthatyner/Desktop/ps.csv")
+plot(p, x="x_1", y="y", Geom.histogram2d(xbincount=15,ybincount=15))
+
+#facet x axes
+plot(rr, xgroup="_type", x="x_1", y="y",color="pitch_type",
+            Geom.subplot_grid(Geom.point))
+#facet x and y            
+plot(rr, xgroup="_type", ygroup="pitch_type", x="x_1", y="y",color="pitch_type",
+            Geom.subplot_grid(Geom.point))            
+
+# "Plotting Functions" #     
+plot([sin, cos], 0, 25)   
+#add color labels in legend
+plot([sin,cos],0,25,color = ["sin","cos"])  
+
+# "Layering" #
+plot(layer(x=rand(10), y=rand(10), Geom.point),
+     layer(x=rand(10), y=rand(10), Geom.line))
+
+plot(dataset("datasets","iris"),layer(x="SepalLength", y="SepalWidth", color="Species", Geom.point),
+	layer(x="PetalLength", y="PetalWidth", color = "Species", Geom.point, Geom.smooth), 
+	Guide.ylabel("Sepal and Petal Width"), Guide.xlabel("Sepal and Petal Length"))    
