@@ -9,7 +9,8 @@ Timeline & Topics:
 
 - Aug 27: installation of Julia, discussion of topics and timeline
 - Sep 3: <a href="intro/intro.jl">intro</a> to Julia (Heike)
-- Sep 10: graphics capabilities: e.g. gadfly (Andee, Carson, Sam T)
+- Sep 10: graphics capabilities: e.g. gadfly (Andee,  Sam T, Carson):
+<a href="http://heike.github.io/stat590f/gadfly/andee-graphics/#/">overview</a>, gadfly examples, and links between Julia and knitr
 - Sep 17: ML capabilities (Sam H) [detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia]
 - Sep 24: ESS also speaks Julia (Jarrod)
 - Oct 1: Python and Julia, IPython notebooks (Carson, Sam T)
