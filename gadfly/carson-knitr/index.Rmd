@@ -1,0 +1,86 @@
+---
+title: "Embedding Gadfly plots in HTML with knitr & R Markdown"
+author: "Carson Sievert"
+date: "August 28, 2014"
+output:
+  ioslides_presentation:
+    incremental: yes
+    widescreen: yes
+---
+
+```{r set-hook, echo=FALSE}
+library(knitr)
+opts_chunk$set(tidy = F, comment = "#>")
+# thanks Ramnath -- https://ramnathv.github.io/posts/verbatim-chunks-knitr/
+knit_hooks$set(source = function(x, options){
+  if (!is.null(options$verbatim) && options$verbatim){
+    opts = gsub(",\\s*verbatim\\s*=\\s*TRUE\\s*", "", options$params.src)
+    bef = sprintf('\n\n    ```{r %s}\n', opts, "\n")
+    stringr::str_c(
+      bef, 
+      knitr:::indent_block(paste(x, collapse = '\n'), "    "), 
+      "\n    ```\n"
+    )
+  } else {
+    stringr::str_c("\n\n```", tolower(options$engine), "\n", 
+      paste(x, collapse = '\n'), "\n```\n\n"
+    )
+  }
+})
+```
+
+
+## knitr engines
+* knitr has built-in support for some "engines" including (but not limited to):
+    * "popular" languages (python, perl, fortran, haskell, etc.)
+    * various "command-line tools" (sed, awk, bash, sh, zsh, etc.)
+* Unfortunately, for each knitr chunk that does __not__ have `'R'` as it's `engine` option
+    * a new session is opened
+    * code is parsed and evaluated in that session (or set `eval = FALSE`)
+    * results are returned and the session is closed
+* Opening & closing sessions can be expensive, so ideally, we open __one__ new session and only ship code when necessary. 
+    * Yihui wrote the [runr](https://github.com/yihui/runr) package with this idea in mind.
+  
+## A julia engine for knitr!
+
+```{r setup, verbatim = TRUE}
+library(knitr)
+library(runr)
+j = proc_julia()
+j$start()
+knit_engines$set(julia = function(options) {
+    knitr:::wrap(j$exec(options$code), options)
+})
+```
+
+```{r hello, verbatim = TRUE, engine = 'julia'}
+string("Hello", " World!")
+```
+
+## Now using Gadfly!
+
+```{r gadfly, eval = FALSE}
+using Gadfly
+myplot = plot(x = rand(30), y = rand(30));
+draw(SVGJS(string("myplot.svg"), 3inch, 2inch), myplot);
+```
+
+<div align = "center">
+  <object data="myplot.svg" type="image/svg+xml" width="600" height="400"></object>
+</div>
+
+
+## More Gadfly
+
+## Drawbacks to `engine = 'julia'`
+
+* `cache = TRUE` doesn't really work
+    * Loading workspace(s) is fairly trivial for R, but how does this work for julia (or other languages for that matter?)
+* Do IPython/IJulia suffer from these same drawbacks?
+
+
+## Make sure to stop the julia session!
+
+```{r stop-julia}
+j$stop()
+```
