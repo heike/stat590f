@@ -16,11 +16,11 @@ Timeline & Topics:
 - Oct 1: Python and Julia, IPython notebooks (Carson, Sam T)
 - Oct 8: IJulia (Andee, Eric)
 - Oct 15: macro programming (Gray)
-- Oct 22: typing (Jarrod), discussant: Alex
+- Oct 22: open
 - Oct 29: wrapper of GPU computing (Sam H)
 - Nov 5: detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia (all)
 - Nov 12: Parallel Computing with Julia (Alex)
-- Nov 19: interop C, Fortran in Julia (Jarrod)
+- Nov 19: benchmarking example (Somenath)
 - Dec 3: benchmarking base code (Andee) 
 - Dec 10: benchmarking vs Hadley verse (Eric)
 
