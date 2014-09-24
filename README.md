@@ -11,8 +11,8 @@ Timeline & Topics:
 - Sep 3: <a href="intro/intro.jl">intro</a> to Julia (Heike)
 - Sep 10: graphics capabilities: e.g. gadfly (Andee,  Sam T, Carson):
 <a href="http://heike.github.io/stat590f/gadfly/andee-graphics/#/">overview</a>, <a href="http://heike.github.io/stat590f/gadfly/samty-gadflyfun/gadflyintro.txt">gadfly examples</a>, and <a href="http://heike.github.io/stat590f/gadfly/carson-knitr/index.html">embedding Julia in HTML with knitr</a>
-- Sep 17: ML capabilities ([source](https://github.com/heike/stat590f/blob/master/ml/Julia%20ML.ipynb) | [html](http://nbviewer.ipython.org/github/heike/stat590f/blob/master/ml/Julia%20ML.ipynb))(Sam H) [detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia]
-- Sep 24: ESS also speaks Julia (Jarrod)
+- Sep 17: <a href="https://github.com/heike/stat590f/blob/master/ml/Julia%20ML.ipynb">ML capabilities</a> (Sam H) [detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia]
+- Sep 24: ML lab
 - Oct 1: Python and Julia, IPython notebooks (Carson, Sam T)
 - Oct 8: IJulia (Andee, Eric)
 - Oct 15: macro programming (Gray)
