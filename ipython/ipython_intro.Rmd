@@ -1,0 +1,30 @@
+---
+title: "iPython Intro"
+author: "Sam Tyner"
+date: "October 1, 2014"
+output: html_document
+---
+
+### Using iPython
+
+
+ 1. Make sure you have python https://www.python.org/download/releases/2.7.8/
+ 2. Install SciPy http://www.scipy.org/install.html
+ 3. Install ipython, use the command line:
+```{r, eval=FALSE}
+$ pip install ipython
+```
+ 4. To load ipython, use the command line:
+```{r, eval=FALSE}
+$ cd your/590/folder
+$ ipython notebook
+```
+
+iPython will open up in your browser. if you already have ipython notebooks in your directory, they will show up. 
+
+Try downloading the notebooks from these sites:
+
+By Josh Hemann: http://nbviewer.ipython.org/gist/jhemann/4569783
+
+By Julia Evans: https://www.wakari.io/sharing/bundle/jvns/PyData%20NYC%202013%20tutorial
+
