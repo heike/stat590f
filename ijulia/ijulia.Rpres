@@ -3,7 +3,7 @@ IJulia
 author: Eric Hare & Andee Kaplan
 date: October 8, 2014
 
-<img src="images/ijulialogo.png" height=15%/>
+<img src="images/ijulialogo.png" height=100/>
 
 What is IPython?
 ========================================================
@@ -18,7 +18,7 @@ Rich architecture for interactive computing with:
 
 IPython \(\rightarrow\) Project Jupyter
 ========================================================
-<img src="images/jupyter-logo.png" height="15%"/>
+<img src="images/jupyter-logo.png" height=70 />
 
 Created in Summer 2014 by the IPython development team to carry forward a vision of reproducible interactive computing for all programming languages:
 - Python
