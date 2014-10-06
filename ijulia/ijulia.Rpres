@@ -94,7 +94,7 @@ Adding Kernels = Hours of frustration
     "codemirror_mode":"julia"}` 
     where `$USER` is once again your system username
 
-Colaboratory - The near future?
+Colaboratory - The future?
 =======================================================
 Create and store notebooks in Google Drive and allow for collaborative editing of notebooks using
 
@@ -105,7 +105,40 @@ Create and store notebooks in Google Drive and allow for collaborative editing o
 - Chrome Beta or Dev version
 - IPython version 2.x (Not 3.0!)
 
-**:-(**
+Choose your own adventure (kernel)!
+=======================================================
+1. Make sure IPython 2.x is the version installed (upgrade or downgrade as necessary)
+2. Follow instructions to install Colaboratory here: https://github.com/jupyter/colaboratory/
+3. Install IJulia
+4. 
 
-Only supports python kernel currently (as far as we can tell).
+  ```
+  cd colaboratory
+  ```
+5. 
+
+  ```
+  python -m colaboratory --profile julia
+  ```
+
+But what about R?
+======================================================
+1. Install `IRKernel` from https://github.com/takluyver/IRkernel
+1. 
+  
+  ```
+  cp -Rf ~/.ipython/profile_julia ~/.ipython/profile_R
+  ```
+2. edit ipython_config.py to contain the line:
+
+  ```
+  c.KernelManager.kernel_cmd = ['R', '-e', 'IRkernel::main()', '--args', '{connection_file}']
+  ``` 
+3. 
+
+  ```
+  python -m colaboratory --profile R
+  ```
+
+
 
