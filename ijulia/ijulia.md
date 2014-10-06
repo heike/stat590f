@@ -70,9 +70,29 @@ Try it out!
 
 http://www.mlcape.com:8000
 
-Installation = Hours of frustration
+Installation
 =======================================================
+1. Install GitHub/development version (3.0) of `IPython` at https://github.com/ipython/ipython (Use sudo for system-wide installation)
+2. Follow the installation steps for `jupyterhub` at https://github.com/jupyter/jupyterhub
+3. (Optional) For GitHub authentication:
+    - Install `Docker` (sudo apt-get install docker.io)
+    - Install `oauthenticator` from https://github.com/jupyter/oauthenticator
+4. Run server with `sudo jupyterhub`
+5. Browse to `http://localhost:8000`
 
+Adding Kernels = Hours of frustration
+=======================================================
+1. For R Kernel:
+    - Install `IRKernel` from https://github.com/takluyver/IRkernel
+2. For Julia Kernel:
+    - Install `IJulia` by running `Pkg.add("IJulia")` from your julia session
+    - Create a file /home/$USER/.ipython/kernels/julia/kernel.json where `$USER` is your system username
+    - Add the text `{"display_name":"Julia","argv":
+    ["/usr/bin/julia","-i","-F",
+    "/home/$USER/.julia/v0.3/IJulia/src/kernel.jl",
+    "{connection_file}"],"language":"julia",
+    "codemirror_mode":"julia"}` 
+    where `$USER` is once again your system username
 
 Colaboratory - The near future?
 =======================================================
