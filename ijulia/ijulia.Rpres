@@ -96,3 +96,16 @@ Adding Kernels = Hours of frustration
 
 Colaboratory - The near future?
 =======================================================
+Create and store notebooks in Google Drive and allow for collaborative editing of notebooks using
+
+1. The CoLaboratory Chrome App.
+2. CoLaboratory with Classic Jupyter Kernels.
+
+**Requirements**
+- Chrome Beta or Dev version
+- IPython version 2.x (Not 3.0!)
+
+**:-(**
+
+Only supports python kernel currently (as far as we can tell).
+
