@@ -14,7 +14,11 @@ Timeline & Topics:
 - Sep 17: <a href="https://github.com/heike/stat590f/blob/master/ml/Julia%20ML.ipynb">ML capabilities</a> (Sam H) [detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia]
 - Sep 24: ML lab
 - Oct 1: Python and Julia, <a href="https://github.com/heike/stat590f/blob/master/ipython/ipython_intro.html">IPython notebooks</a> (Carson, Sam T)
+<<<<<<< HEAD
 - Oct 8: [IJulia](http://heike.github.io/stat590f/ijulia/) (Andee, Eric)
+=======
+- Oct 8: <a href="http://heike.github.io/stat590f/IJulia">IJulia</a> (Andee, Eric)
+>>>>>>> links updated
 - Oct 15: macro programming (Gray)
 - Oct 22: open
 - Oct 29: wrapper of GPU computing (Sam H)
