@@ -1,6 +1,6 @@
 Julia's macros, expressions, etc. \newline for and by the confused
 #+AUTHOR: Gray Calhoun
-#+DATE: October 29th, 2014
+#+DATE: October 22nd, 2014
 
 * Introduction
 ** What are we going to cover?
