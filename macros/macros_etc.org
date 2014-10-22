@@ -30,7 +30,7 @@ Julia's macros, expressions, etc. \newline for and by the confused
      + You can pass functions as arguments to other functions
    + Functions can be named or anonymous
    + Other features:
-     + Variable numbers arguments
+     + Variable number of arguments
      + Optional arguments with default values
      + Keyword arguments
      + Return multiple values as a tuple
@@ -97,6 +97,27 @@ Julia's macros, expressions, etc. \newline for and by the confused
      + "Type-stability" is important
      + More at [[http://julia.readthedocs.org/en/latest/manual/performance-tips]]
      + Also see Leah Hanson's [[https://github.com/astrieanna/TypeCheck.jl][TypeCheck.jl]] package
+** Defining new objects
+   #+BEGIN_SRC julia :tangle yes
+     # Defining new objects is easy, use the
+     # 'type' keyword
+     type MyObject
+         x::Integer
+         y::Integer
+     end
+     
+     a = MyObject(32, 59)
+     a + a
+     #> ERROR: `+` has no method matching
+     #> +(::MyObject, ::MyObject)
+     
+     +(a::MyObject, b::MyObject) =
+         MyObject(a.x+b.x, a.y+b.y)
+
+     a + a
+     #> MyObject(64,118)
+     #+END_SRC
+   
 * Expressions
 ** Expressions and symbols are objects
    #+BEGIN_SRC julia :tangle yes
@@ -139,6 +160,27 @@ Julia's macros, expressions, etc. \newline for and by the confused
      f(12)
      #> 93
    #+END_SRC
+** Evaluating Julia expressions through "eval" 
+   #+BEGIN_SRC julia :tangle yes
+     # A useful idiom: if you absolutely _need_ local
+     # eval, you can create an anonymous function with
+     # eval and then call it
+     
+     f_bad(height) = eval(:(height + 23))
+     f_bad(12)
+     #> 93
+
+     function f_good(height)
+         tempf = eval(:(x -> x + 23))
+         tempf(height)
+     end
+     
+     f_good(12)
+     #> 35
+     
+     # This should be a _last resort_, there are
+     # better alternatives
+   #+END_SRC
 ** Basic expression facts and syntax
    #+BEGIN_SRC julia :tangle yes
      # Expressions have two (main) fields
@@ -167,7 +209,7 @@ Julia's macros, expressions, etc. \newline for and by the confused
    + It's even more useful if we don't have to do this by hand
    + "Macros" are the way to do this in Julia
    + A macro is superficially like a function *except*
-     + Macros do not evaluate their arguments when they dispatched,
+     + Macros do not evaluate their arguments when they are dispatched,
        they treat their arguments as if they were quoted expressions
      + Macros return expressions: those expressions are then evaluated
        in the environment that called the macro
@@ -224,7 +266,9 @@ Julia's macros, expressions, etc. \newline for and by the confused
 ** General uses of macros
    1. Performance
       + @devec, @parallel, @inbounds, @simd, probably more
+      + @horner, others
    2. Syntactical "sugar"
+      + @eval \dots invokes eval(:( \dots ))
    3. Extending the language & syntax
       + Keyword arguments were originally introduced as macros in a
 	separate package
@@ -410,20 +454,21 @@ Julia's macros, expressions, etc. \newline for and by the confused
 
        f(x); f(y); f(z <- 3); f(3)
        #+END_SRC
-** Last slide, I'll fake wisdom and drop some knowledge
+** Last slide, I'll fake wisdom and perspective
    + Incremental development
      + Of individual macros
      + Of collections of macros
    + Embedded scientific DSL have huge potential, should be very
      exciting
      + In econ, "Dynare" has been massively popular, transformed macroeconomics
-       + It's written in *Matlab*
+       despite (because?) being written in *Matlab*
      + The S statistical formula notation is popular
      + ggplot is essentially a DSL for statistical graphics
    + Balance, incremental growth
    + Expect lots of changes in Julia over 0.4 and 0.5 release
      + Macro hygiene
      + Potentially moving Expr to an abstract type
+     + Inheritence system
    + Documentation and tutorials are pretty barren
      + Look at individual packages that rely on macros
      + Look at the *first release* of those packages
