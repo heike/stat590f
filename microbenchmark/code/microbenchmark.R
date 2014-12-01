@@ -38,16 +38,16 @@ y <- rnorm(10000000)
 
 times <- microbenchmark(
   fib(20),
-  matrix(1, 200, 200),
-  A%*%t(A),
+  "array_construct(200)" = matrix(1, 200, 200),
+  "mat_mult(200)" = A%*%t(A),
   rand_mat_stat(1000),
-  x%*%y
+  "inner(x, y)" = x%*%y
 )
-
-times$expr <- factor(times$expr, levels=c("fib(20)", "array_construct(200)", "mat_mult(200)", "rand_mat_stat(1000)", "inner(x, y)"))
+times <- as.data.frame(times)
+times$time <- times$time*1.0e-9 #nanoseconds
 
 #########################################
 ## Write results out
 #########################################
-write.csv(times, file="julia_benchmark_times.csv")
+write.csv(times, file="R_benchmark_times.csv", row.names=FALSE)
 

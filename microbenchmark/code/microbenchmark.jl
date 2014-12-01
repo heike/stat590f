@@ -80,5 +80,5 @@ end
 #########################################
 ## Write results out
 #########################################
-writecsv("julia_benchmark_times.csv", times)
+writecsv("written_data/julia_benchmark_times.csv", times)
 
