@@ -1,10 +1,6 @@
-timeit <- function(f, ..., times=100) {
-  times <- sapply(1:times, function(x){
-    system.time(f(...))["elapsed"]
-  })
-  return(times)
-}
-
+##########################################
+## Test functions
+##########################################
 fib <- function(n) {
   if(n < 2) {
     return(n)
@@ -13,17 +9,45 @@ fib <- function(n) {
   }
 }
 
+rand_mat_stat <- function(t) {
+  n <- 5
+  stuff <- sapply(1:t, function(i){
+    mat_a <- matrix(rnorm(n*n), n, n)
+    mat_b <- matrix(rnorm(n*n), n, n)
+    mat_c <- matrix(rnorm(n*n), n, n)
+    mat_d <- matrix(rnorm(n*n), n, n)
+    P <-cbind(mat_a, mat_b, mat_c, mat_d)
+    Q <- rbind(cbind(mat_a, mat_b),cbind(mat_c, mat_d))
+    
+    c(sum(diag((t(P)%*%P)^4)), sum(diag((t(Q)%*%Q)^4)))
+  })
+  
+  res <- apply(stuff,1,function(x) sd(x)/mean(x))
+  return(res)
+}
 
+
+##########################################
+## Time 100 runs of each function
+##########################################
 library(microbenchmark)
 
-n <- 20
+A <- matrix(1, 200, 200)
+x <- rnorm(10000000)
+y <- rnorm(10000000)
 
-bench <- microbenchmark(
-  matrix(1, n, n),
-  fib(n)
+times <- microbenchmark(
+  fib(20),
+  matrix(1, 200, 200),
+  A%*%t(A),
+  rand_mat_stat(1000),
+  x%*%y
 )
 
-library(ggplot2)
-qplot(expr, time, data=bench, geom="boxplot")
+times$expr <- factor(times$expr, levels=c("fib(20)", "array_construct(200)", "mat_mult(200)", "rand_mat_stat(1000)", "inner(x, y)"))
 
-#timeit(fib, 20)
+#########################################
+## Write results out
+#########################################
+write.csv(times, file="julia_benchmark_times.csv")
+
