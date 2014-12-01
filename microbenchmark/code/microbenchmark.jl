@@ -82,3 +82,16 @@ end
 #########################################
 writecsv("written_data/julia_benchmark_times.csv", times)
 
+#########################################
+# Redo inner product
+#########################################
+sizes = [10 100 500 1000 5000 10000 100000 1000000 10000000];
+times_inner = Array(Any, 0, 3);
+for n = sizes
+  x = randn(n)
+  y = randn(n)
+  times_inner = [times_inner, [n "inner(x, y)" @time_it inner(x, y)]];
+end
+
+writecsv("written_data/julia_benchmark_inner.csv", times_inner)
+

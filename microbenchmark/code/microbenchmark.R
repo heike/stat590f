@@ -49,5 +49,18 @@ times$time <- times$time*1.0e-9 #nanoseconds
 #########################################
 ## Write results out
 #########################################
-write.csv(times, file="R_benchmark_times.csv", row.names=FALSE)
+write.csv(times, file="written_data/R_benchmark_times.csv", row.names=FALSE)
 
+#########################################
+# Redo inner product
+#########################################
+library(plyr)
+sizes <- c(10, 100, 500, 1000, 5000, 10000, 100000, 1000000, 10000000)
+times_inner <- mdply(sizes, function(n) {
+  x <- rnorm(n)
+  y <- rnorm(n)
+  as.data.frame(cbind(n, microbenchmark("inner(x, y)" = x%*%y)))
+})
+times_inner$time <- times$time*1.0e-9 #nanoseconds
+
+write.csv(times_inner[,-1], file="written_data/R_benchmark_inner.csv", row.names=FALSE)
