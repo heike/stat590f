@@ -21,7 +21,7 @@ Timeline & Topics:
 - Nov 5: detecting text in images: first steps with Julia https://www.kaggle.com/c/street-view-getting-started-with-julia (all)
 - Nov 12: Parallel Computing with Julia (Alex)
 - Nov 19: benchmarking example (Somenath)
-- Dec 3: benchmarking base code (Andee) 
+- Dec 3: [benchmarking base code](http://heike.github.io/stat590f/microbenchmark/microbenchmark.slides.html) (Andee) 
 - Dec 10: benchmarking vs Hadley verse (Eric)
 
 Resources:
