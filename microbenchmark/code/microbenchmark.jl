@@ -88,9 +88,11 @@ writecsv("written_data/julia_benchmark_times.csv", times)
 sizes = [10 100 500 1000 5000 10000 100000 1000000 10000000];
 times_inner = Array(Any, 0, 3);
 for n = sizes
-  x = randn(n)
-  y = randn(n)
-  times_inner = [times_inner, [n "inner(x, y)" @time_it inner(x, y)]];
+  for i=1:100 
+    x = randn(n)
+    y = randn(n)
+    times_inner = [times_inner, [n "inner(x, y)" @time_it inner(x, y)]];
+  end
 end
 
 writecsv("written_data/julia_benchmark_inner.csv", times_inner)

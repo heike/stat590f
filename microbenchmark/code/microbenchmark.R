@@ -61,6 +61,6 @@ times_inner <- mdply(sizes, function(n) {
   y <- rnorm(n)
   as.data.frame(cbind(n, microbenchmark("inner(x, y)" = x%*%y)))
 })
-times_inner$time <- times$time*1.0e-9 #nanoseconds
+times_inner$time <- times_inner$time*1.0e-9 #nanoseconds
 
 write.csv(times_inner[,-1], file="written_data/R_benchmark_inner.csv", row.names=FALSE)
