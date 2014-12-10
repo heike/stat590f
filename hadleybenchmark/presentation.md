@@ -1,6 +1,7 @@
 Benchmarking: Hadleyverse vs Julia
 ========================================================
 author: Eric Hare
+font-family: Helvetica
 date: 2014-12-10
 
 DataFrames Package
@@ -18,8 +19,10 @@ RDatasets Package
 ========================================================
 Contains several common datasets that we are used to
 
-using DataFrames, RDatasets
-diamonds = dataset("ggplot2", "diamonds")
+    using DataFrames, RDatasets
+    diamonds = dataset("ggplot2", "diamonds")
+
+https://github.com/johnmyleswhite/RDatasets.jl
 
 Emulating the Hadleyverse
 ========================================================
@@ -34,26 +37,26 @@ Three Benchmarks
 
 1. Summarising a dataset
 ========================================================
-* In old-hadleyverse, accomplished with plyr::ddply and plyr::summarise
-* In new-hadleyverse, accomplished with dplyr::summarise
-* In Julia, accomplished with by()
+* In old-hadleyverse, accomplished with `plyr::ddply` and `plyr::summarise`
+* In new-hadleyverse, accomplished with `dplyr::summarise`
+* In Julia, accomplished with `by()`
 
 2. Sampling from a dataset
 ========================================================
-* Not really an old hadleyverse... would just use base::sample()
-* In new-hadleyverse, accomplished with dplyr::sample_n
-* In Julia, accomplished with sample() as well
+* Not really an old hadleyverse... would just use `base::sample()`
+* In new-hadleyverse, accomplished with `dplyr::sample_n`
+* In Julia, accomplished with `sample()` as well
 
 3. Tidying a dataset
 ========================================================
-* In old-hadleyverse, accomplished with reshape2::melt
-* In new-hadleyverse, accomplished with tidyr::gather
-* In Julia, accomplished with stack()
+* In old-hadleyverse, accomplished with `reshape2::melt`
+* In new-hadleyverse, accomplished with `tidyr::gather`
+* In Julia, accomplished with `stack()`
 
 Results
 ========================================================
-![alt text](images/result1.png)
+![](images/result1.png)
 
 Results
 ========================================================
-![alt text](images/result2.png)
+![](images/result2.png)
