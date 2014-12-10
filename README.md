@@ -22,7 +22,7 @@ Timeline & Topics:
 - Nov 12: Parallel Computing with Julia (Alex)
 - Nov 19: benchmarking example (Somenath)
 - Dec 3: [benchmarking base code](http://heike.github.io/stat590f/microbenchmark/microbenchmark.slides.html) (Andee) 
-- Dec 10: benchmarking vs Hadley verse (Eric)
+- Dec 10: [benchmarking hadleyverse](http://heike.github.io/stat590f/hadleybenchmark/presentation.html)(Eric)
 
 Resources:
 
