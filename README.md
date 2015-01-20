@@ -3,6 +3,33 @@ stat590f
 
 Topics in statistical computing @ ISU
 
+Spring 2015
+---
+Time & Place: Snedecor 2102, T 4-5
+
+Timeline & Topics:
+
+- Jan 20: discussion of topics and timeline 
+- Jan 27:
+- Feb 3:
+- Feb 10:
+- Feb 17:
+- Feb 24:
+- Mar 3:
+- Mar 10:
+- Mar 24:
+- Mar 31:
+- Apr 7:
+- Apr 14:
+- Apr 21:
+- Apr 28:
+
+Resources: 
+- [https://www.python.org/]
+- Python notebooks: [http://ipython.org/notebook.html]
+
+Fall 2014
+---
 Time & Place: Snedecor 1109, W 12-1
 
 Timeline & Topics:
