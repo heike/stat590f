@@ -9,20 +9,26 @@ Time & Place: Snedecor 2102, T 4-5
 
 Timeline & Topics:
 
+
+
+
 - Jan 20: discussion of topics and timeline 
-- Jan 27:
-- Feb 3:
-- Feb 10:
-- Feb 17:
-- Feb 24:
-- Mar 3:
-- Mar 10:
-- Mar 24:
-- Mar 31:
-- Apr 7:
-- Apr 14:
-- Apr 21:
-- Apr 28:
+- Jan 27: very basic things in python (Jason, Alex, Ian)
+- Feb 3: numpy, scipy, how does python work in general? (Alex), 
+- Feb 10: pandas (Carson) - the python version of Hadley-verse
+- Feb 17: scikit learn (Jason) 
+- Feb 24: scikit again?
+- Mar 3:  ggply: Grammar of Graphics in python, other packages for static graphics
+- Mar 10: interactive graphics (bokeh, seaborn) (Andee)
+- Mar 24: opencv (Eric), python interface, computer vision
+- Mar 31: ipython
+- Apr 7: Django, Flask - alternatives to  shiny (Eric)
+- Apr 14: Beautiful soup - webscraping (Sam) 
+- Apr 21: sympy (Andee): symbolic mathematics
+- Apr 28: mapreduce in python (), python interpreters - speedup?
+
+
+
 
 Resources: 
 - [https://www.python.org/]
