@@ -19,7 +19,7 @@ Timeline & Topics:
 - Feb 17: scikit learn (Jason) 
 - Feb 24: scikit again?
 - Mar 3:  ggply: Grammar of Graphics in python, other packages for static graphics
-- Mar 10: interactive graphics (bokeh, seaborn) (Andee)
+- Mar 10: [interactive graphics (bokeh, seaborn)](http://heike.github.io/stat590f/bokeh) (Andee)
 - Mar 24: opencv (Eric), python interface, computer vision
 - Mar 31: ipython
 - Apr 7: Django, Flask - alternatives to  shiny (Eric)
