@@ -23,7 +23,7 @@ Timeline & Topics:
 - Mar 24: opencv (Eric), python interface, computer vision
 - Mar 31: ipython
 - Apr 7: Django, Flask - alternatives to  shiny (Eric)
-- Apr 14: Beautiful soup - webscraping (Sam) 
+- Apr 14: Beautiful soup - webscraping (Carson) 
 - Apr 21: sympy (Andee): symbolic mathematics
 - Apr 28: mapreduce in python (), python interpreters - speedup?
 
